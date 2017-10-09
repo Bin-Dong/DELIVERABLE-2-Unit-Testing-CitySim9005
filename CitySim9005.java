@@ -50,6 +50,9 @@ public class CitySim9005 {
 				System.out.println("----------------------------");
 				driver++;
 			}
+		}else{
+			System.out.println("Please enter ONE argument that is of a valid Java 32-bit integer type.");
+			System.exit(0);
 		}
 	}
     
