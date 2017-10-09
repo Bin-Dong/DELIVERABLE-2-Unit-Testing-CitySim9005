@@ -229,4 +229,29 @@ public class CitySim9005Test{
 		Mockito.when(p1.getCurrentLocation()).thenReturn("Library");
 		assertEquals(_c.getCurrentLocation(),"Library");
 	}
+	
+	//Test to see if ALL location getters are working correctly
+	@Test
+	public void testLocationGetters(){
+		Location Library = new Location("Library","Bill","Laboon","CS","Department");
+		Location rightLocation = Mockito.mock(Location.class);
+		Location leftLocation = Mockito.mock(Location.class);
+		
+		Library.setLocationRight(rightLocation);
+		Library.setLocationLeft(leftLocation);
+		
+		Mockito.when(rightLocation.toString()).thenReturn("Right Location");
+		Mockito.when(leftLocation.toString()).thenReturn("Left Location");
+		
+		assertEquals(Library.getLeftStreet(),"Bill");
+		assertEquals(Library.getRightStreet(),"Laboon");
+		assertEquals(Library.getCurrentLocation(),"Library");
+		assertEquals(Library.getLeftLocation(), leftLocation);
+		assertEquals(Library.getRightLocation(),rightLocation);
+		assertEquals(Library.getOutSideCityName(),"");
+		assertEquals(Library.toString(),"Library");
+		assertEquals(Library.getLeftLocationName(),"CS");
+		assertEquals(Library.getRightLocationName(),"Department");
+		
+	}
 }
